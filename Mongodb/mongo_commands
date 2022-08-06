@@ -27,3 +27,76 @@ db.content.drop();
 
 Mongo Db commands for rows
 
+show all rows in collection 'comments'
+db.comments.find();
+
+show all rows in collection 'comments' in pretty format
+db.comments.find(),pretty();
+
+Insert one row in 'comments' collection
+db.comments.insert({
+    'name':'Hitesh',
+    'lang':'C++'
+})
+
+Insert many rows in 'comments' collection
+db.comments.insertMany([{
+    'name':'Hitesh',
+    'lang':'C++'
+},
+{
+    'name':'Rakesh',
+    'lang':'C'
+},
+{
+    'name':'Mahesh',
+    'lang':'Solidity'
+}])
+
+search in a mongoDb Database
+db.comments.find({lang:'C++'});
+
+Limit the number of rows in output
+db.comments.find().limit(2);
+
+ count the number of rows in the output
+ db.comments.find().count();
+
+ Find the first row matching the object
+ db.comments.findOne({name:'Hitesh'});
+
+ Update a row
+ db.comments.update({name:'hitesh'},{
+    'name':'Mahesh',
+    'lang':'Solidity'
+ });
+
+ Update a row and if it is not present then insert it
+ db.comments.update({name:'hitesh'},{
+    'name':'Mahesh',
+    'lang':'Solidity',
+    'member_since':'2'
+ },{upsert:true});
+
+ Mongodb Increment operator
+ db.comments.update({name:'Mahesh'},{
+    $inc:{
+        member_since:2
+    }
+ })
+
+ Mongodb Rename operator
+ db.comments.update({name:'Mahesh'},{
+    $rename:{
+        member_since:'member'
+    }
+ })
+
+ Delete row
+ db.comments.remove({name:'Hitesh'});
+
+ less than
+ db.comments.find({member_since:{$lt:2}});
+
+ greater than
+ db.comments.find({member_since:{$gt:1}});
