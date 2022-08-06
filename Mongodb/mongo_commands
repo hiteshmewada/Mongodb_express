@@ -1,0 +1,29 @@
+Mongo Db Commands for Databases
+
+View all databases
+show dbs;
+
+Create a new or switch databases
+use dbName;
+
+View current database
+db
+
+Delete database
+db.dropDatabase();
+
+// collection means tables of database
+
+Mongo Db Commands for collections
+
+to see all collection
+show collections;
+
+create a collection named 'comments'
+db.createCollection('comments');
+
+delete drop collection named 'content'
+db.content.drop();
+
+Mongo Db commands for rows
+
